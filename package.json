@@ -1,7 +1,7 @@
 {
   "name": "grunt-json-replace",
   "description": "Read, replace and write json files",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/mikaelkaron/grunt-json-replace",
   "author": {
     "name": "Mikael Karon",
@@ -17,7 +17,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/mikaelkaron/grunt-json-replace/blob/master/LICENSE-MIT"
+      "url": "http://mikael.mit-license.org/"
     }
   ],
   "main": "Gruntfile.js",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
-    "grunt": "~0.4.0rc7"
+    "grunt": "~0.4.0"
   },
   "keywords": [
     "gruntplugin"
