@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mikaelkaron/grunt-json-replace.png)](https://travis-ci.org/mikaelkaron/grunt-json-replace)
+
 # grunt-json-replace
 
 > Read, replace and write json files
