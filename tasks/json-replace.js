@@ -10,15 +10,14 @@
 
 module.exports = function (grunt) {
 	var UNDEFINED;
-	var TYPEOF_OBJECT = typeof {};
 	var REPLACE = "replace";
 	var SPACE = "space";
 
 	function walk(node, replace) {
 		var result;
 
-		switch (typeof node) {
-			case TYPEOF_OBJECT:
+		switch (grunt.util.kindOf(node)) {
+			case "object" :
 				result = {};
 
 				Object.keys(node).forEach(function(key) {
