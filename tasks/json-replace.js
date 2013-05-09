@@ -12,24 +12,21 @@ module.exports = function (grunt) {
 	var UNDEFINED;
 	var REPLACE = "replace";
 	var SPACE = "space";
+	var OBJECT = "object";
 
 	function walk(node, replace) {
-		var result;
-
-		switch (grunt.util.kindOf(node)) {
-			case "object" :
-				result = {};
-
-				Object.keys(node).forEach(function(key) {
-					result[key] = walk(node[key], replace && replace[key]);
-				});
-				break;
-
-			default:
-				result = replace instanceof Function ? replace(node) : replace || node;
+		if (grunt.util.kindOf(replace) === OBJECT && grunt.util.kindOf(node) === OBJECT) {
+			Object.keys(node).forEach(function(key) {
+				if (key in replace) {
+					node[key] = walk(node[key], replace[key]);
+				}
+			});
+		}
+		else {
+			node = replace;
 		}
 
-		return result;
+		return node;
 	}
 
 	grunt.task.registerMultiTask("json-replace", "Read, replace and write json files", function (replace, space) {
