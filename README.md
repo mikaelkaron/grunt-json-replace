@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mikaelkaron/grunt-json-replace.png)](https://travis-ci.org/mikaelkaron/grunt-json-replace)
+[![NPM version](https://badge.fury.io/js/grunt-json-replace.png)](http://badge.fury.io/js/grunt-json-replace)
 
 # grunt-json-replace
 
