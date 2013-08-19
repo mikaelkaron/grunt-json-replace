@@ -9,33 +9,18 @@
 "use strict";
 
 module.exports = function (grunt) {
+	var json_replace = require("json-replace");
+
 	var UNDEFINED;
 	var REPLACE = "replace";
 	var SPACE = "space";
-	var OBJECT = "object";
 
-	function walk(node, replace) {
-		if (grunt.util.kindOf(replace) === OBJECT && grunt.util.kindOf(node) === OBJECT) {
-			Object.keys(node).forEach(function(key) {
-				if (key in replace) {
-					node[key] = walk(node[key], replace[key]);
-				}
-			});
-		}
-		else {
-			node = replace;
-		}
-
-		return node;
-	}
+	var OPTIONS = {};
+	OPTIONS[SPACE] = "\t";
 
 	grunt.task.registerMultiTask("json-replace", "Read, replace and write json files", function (replace, space) {
-		// Define default options
-		var options = {};
-		options[SPACE] = "\t";
-
 		// Load cli options (with defaults)
-		options = this.options(options);
+		var options = this.options(OPTIONS);
 
 		// Override options
 		space = options[SPACE] = space || options[SPACE];
@@ -46,13 +31,14 @@ module.exports = function (grunt) {
 
 		try {
 			this.files.forEach(function (file) {
-				var src = file.src;
-				var dest = file.dest;
+				file.src.forEach(function (src) {
+					var dest = file.dest;
 
-				grunt.file.write(dest, JSON.stringify(walk(grunt.file.readJSON(src), replace), UNDEFINED, space));
+					grunt.file.write(dest, JSON.stringify(json_replace(grunt.file.readJSON(src), replace), UNDEFINED, space));
 
-				// Output
-				grunt.log.ok("Read " + src + ", wrote " + dest);
+					// Output
+					grunt.log.ok("Read " + src + ", wrote " + dest);
+				});
 			});
 		}
 		catch (e) {

@@ -1,7 +1,7 @@
 {
   "name": "grunt-json-replace",
   "description": "Read, replace and write json files",
-  "version": "0.1.2",
+  "version": "0.1.3-SNAPSHOT",
   "homepage": "https://github.com/mikaelkaron/grunt-json-replace",
   "author": {
     "name": "Mikael Karon",
@@ -21,8 +21,8 @@
     }
   ],
   "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.8.0"
+  "dependencies": {
+    "json-replace": "0.0.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",

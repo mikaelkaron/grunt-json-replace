@@ -65,6 +65,7 @@ A string value that is used to format the output JSON
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-0.1.2 - Added support for removing nodes from the result
-0.1.1 - Updated version with better documentation
+0.1.3 - Move replace logic to external module  
+0.1.2 - Added support for removing nodes from the result  
+0.1.1 - Updated version with better documentation  
 0.1.0 - Initial release
